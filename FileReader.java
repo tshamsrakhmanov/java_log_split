@@ -26,8 +26,9 @@ public class FileReader {
 
                 sc.close();
             } else {
-                System.out.println("No such file OR path is broken");
-                System.out.println("Please provide valid file path");
+                System.out.println("// java_log_splitter");
+                System.out.println("// No such file OR path is broken. Please provide valid file path");
+                System.out.println("// Please see --help or -help for instructions");
             }
 
 
