@@ -49,6 +49,12 @@ public class Main {
         System.out.println("PROGRAM EXECUTION");
         System.out.println("------------------------------------");
 
+        file_reader freader = new file_reader();
+
+        freader.get_filename("C:\\Users\\ololo\\IdeaProjects\\java_log_split\\main.log.2014-11-17");
+
+        freader.file_print();
+
 
     }
 }

@@ -1,11 +1,18 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class ReadLineByLineExample2 {
-    public static void main(String[] args) {
+public class file_reader {
+
+    String file_name = "";
+
+    public void get_filename (String file_name) {
+        this.file_name = file_name;
+    }
+
+    public void file_print () {
         try {
             //the file to be opened for reading
-            FileInputStream fis = new FileInputStream("C:\\Users\\ololo\\IdeaProjects\\java_log_split\\main.log.2014-11-17");
+            FileInputStream fis = new FileInputStream(this.file_name);
             Scanner sc = new Scanner(fis);    //file to be scanned
             //returns true if there is another line to read
 
