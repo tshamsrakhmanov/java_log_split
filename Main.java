@@ -5,13 +5,6 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-        /*
-        System.out.println("Argument count: " + args.length);
-        for (int i = 0; i < args.length; i++) {
-            System.out.println("Argument " + i + ": " + args[i]);
-        }
-        */
-
         // just exit program if there is no arguments
         if (args.length < 1) {
             System.out.println("No arguments provided -> exit program");
@@ -44,6 +37,7 @@ public class Main {
         System.out.println("------------------------------------");
         System.out.println("PROGRAM EXECUTION");
         System.out.println("------------------------------------");
+
 
     }
 }
