@@ -20,7 +20,6 @@ public class Main {
             String some_input = input.nextLine();
         }
 
-
         // TODO check if 1st flag is --help, then provide info and exit
 
 
