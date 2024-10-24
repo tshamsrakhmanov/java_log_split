@@ -5,36 +5,45 @@ public class Main {
 
         Scanner input = new Scanner(System.in);
 
-
+        /*
         System.out.println("Argument count: " + args.length);
         for (int i = 0; i < args.length; i++) {
             System.out.println("Argument " + i + ": " + args[i]);
         }
+        */
 
-        // if args not provided -> exit program
+        // just exit program if there is no arguments
+        if (args.length < 1) {
+            System.out.println("No arguments provided -> exit program");
+            return;
+        }
+
+        // check if 1st flag is help -> provide it
+        if (args[0].equals("--help") || args[0].equals("-help")) {
+            System.out.println("\njava_log_split v0.05");
+            System.out.println("    <path> - path of log file to be splitted [mandatory]");
+            System.out.println("    <path> - path to folder, where to save split pieces [mandatory]");
+            System.out.println("    <integer> - summary count of pieces [optional. base value = 5]");
+            System.out.println(" ");
+            System.out.println("    Author: Timur Shamsrakhmanov");
+            System.out.println("    Autumn 2024");
+            return;
+        }
+
+        // if not all args not provided -> exit program
         if (args.length >= 2) {
             System.out.println("Arguments provided. Go with program...");
         } else {
             System.out.println("Not enough arguments provided. Abort.");
             System.out.println("Press ENTER to exit.");
-            String some_input = input.nextLine();
+            String _ = input.nextLine();
+            return;
         }
 
-        // TODO check if 1st flag is --help, then provide info and exit
 
-
-        // check if arguments provided
-        // (log-file path) (sample name of part_log_file prompt as PART_) (how many parts: 5-10, basic = 5)
-        // if not - show ERROR prompt, exit program
-        // got to log-file, check existence
-        // if not existing OR empty - ERROR prompt
-        // estimate file size and calculate batch size (based on 3rd flag)
-
-        // cycle:
-        // go line-by-line in log file
-        // if
-
-        //
+        System.out.println("------------------------------------");
+        System.out.println("PROGRAM EXECUTION");
+        System.out.println("------------------------------------");
 
     }
 }
