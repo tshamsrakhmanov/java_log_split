@@ -3,23 +3,31 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        final String VERSION = "0.05";
+
         Scanner input = new Scanner(System.in);
 
         // just exit program if there is no arguments
         if (args.length < 1) {
-            System.out.println("No arguments provided -> exit program");
+            System.out.printf("// java_log_splitter ver.%s\n",VERSION);
+            System.out.println("// No valid arguments provided");
+            System.out.println("// Please see --help or -help for instructions");
             return;
         }
 
         // check if 1st flag is help -> provide it
         if (args[0].equals("--help") || args[0].equals("-help")) {
             System.out.println("\njava_log_split v0.05");
-            System.out.println("    <path> - path of log file to be splitted [mandatory]");
-            System.out.println("    <path> - path to folder, where to save split pieces [mandatory]");
-            System.out.println("    <integer> - summary count of pieces [optional. base value = 5]");
+            System.out.println("Usage: CMD [PATH1] [PATH2] [SPLIT]");
+            System.out.println("PATH1");
+            System.out.println("    Path to log file which is taken for splitting operation");
+            System.out.println("PATH2");
+            System.out.println("    Path to folder, where split log files will be reside");
+            System.out.println("SPLIT");
+            System.out.println("    Number of pieces to split log file to");
             System.out.println(" ");
-            System.out.println("    Author: Timur Shamsrakhmanov");
-            System.out.println("    Autumn 2024");
+            System.out.println("    // Author: Timur Shamsrakhmanov //");
+            System.out.println("    // Autumn 2024                  //");
             return;
         }
 
