@@ -1,16 +1,18 @@
+import java.io.File;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("// Flags provided...");
-
-        if (args.length > 0) {
-            for (String arg : args) {
-                System.out.printf("  %s\n", arg);
-            }
-        } else {
-            System.out.println("// No flags provided...");
-        }
+//        System.out.println("// Flags provided...");
+//
+//        if (args.length > 0) {
+//            for (String arg : args) {
+//                System.out.printf("  %s\n", arg);
+//            }
+//        } else {
+//            System.out.println("// No flags provided...");
+//        }
 
         int piece_counter = 5;
 
@@ -38,8 +40,42 @@ public class Main {
         String path_to_file = args[0];
         String path_to_save = args[1];
 
-        FileReader reader = new FileReader();
-        reader.file_split(path_to_file, path_to_save, piece_counter);
 
+        if (!isValidPath(path_to_save)) {
+            sampleLogger.error_broken_path();
+            return;
+        }
+
+        int temp_index = path_to_save.lastIndexOf("\\");
+        String first_part = path_to_save.substring(0, temp_index + 1);
+        String last_part = path_to_save.substring(temp_index + 1);
+
+
+        FileReader reader = new FileReader();
+        reader.file_split(path_to_file, first_part, last_part, piece_counter);
+
+    }
+
+    public static boolean isValidPath(String input_path) {
+        boolean answer = true;
+
+        if (!input_path.contains("\\")) {
+            answer = false;
+        } else {
+            int temp_index = input_path.lastIndexOf("\\");
+            String first_part = input_path.substring(0, temp_index);
+            String last_part = input_path.substring(temp_index + 1);
+
+            File temp_file = new File(first_part);
+
+            if (last_part.contains("\\")) {
+                answer = false;
+            }
+
+            if (!temp_file.isDirectory()) {
+                answer = false;
+            }
+        }
+        return answer;
     }
 }

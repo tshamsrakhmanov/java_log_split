@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class FileReader {
 
-    public void file_split(String file_split_path_to_file, String file_split_path_to_save, int file_split_piece_count) {
+    public void file_split(String file_split_path_to_file, String file_split_path_to_save, String file_split_custom_filename, int file_split_piece_count) {
 
         SampleLogger sampleLogger = new SampleLogger();
 
@@ -11,7 +11,6 @@ public class FileReader {
         // wrong originate path catcher
         File orig_path = new File(file_split_path_to_save);
         if (!orig_path.isDirectory()) {
-            System.out.println("stuck here....");
             sampleLogger.error_broken_path();
             return;
         }
@@ -32,7 +31,7 @@ public class FileReader {
 
                     String suffix = String.valueOf(i + 1);
 
-                    String str_name_of_temp_file = file_split_path_to_save + "temp" + suffix;
+                    String str_name_of_temp_file = file_split_path_to_save + file_split_custom_filename + suffix;
                     System.out.println(str_name_of_temp_file);
                     File temp_file = new File(str_name_of_temp_file);
                     Writer output_internal = new BufferedWriter(new FileWriter(str_name_of_temp_file, true));
