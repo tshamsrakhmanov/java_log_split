@@ -1,5 +1,3 @@
-
-
 public class SampleLogger {
     public void error_no_valid_arguments(String version) {
         System.out.printf("// java_log_splitter ver. %s\n", version);
@@ -27,8 +25,4 @@ public class SampleLogger {
         System.out.println("// Not enough arguments provided. Abort.");
         System.out.println("// Please see --help or -help for instructions");
     }
-
-//    public void
-
-
 }

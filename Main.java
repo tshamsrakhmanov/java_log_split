@@ -1,9 +1,10 @@
-
-
 public class Main {
+
     public static void main(String[] args) {
 
-        final String VERSION = "0.05";
+        final String VERSION = "0.06";
+
+        int piece_counter = 5;
 
         SampleLogger sampleLogger = new SampleLogger();
 
@@ -24,16 +25,14 @@ public class Main {
             return;
         }
 
-        FileReader reader = new FileReader();
-
-        try {
-            reader.get_filename(args[0]);
-        } catch (Exception e) {
-            //noinspection CallToPrintStackTrace
-            e.printStackTrace();
+        if (args.length > 2) {
+            piece_counter = Integer.parseInt(args[2]);
         }
 
-        reader.file_split();
+        FileReader reader = new FileReader();
+
+        reader.get_filename(args[0]);
+        reader.file_split(piece_counter);
 
 
     }
