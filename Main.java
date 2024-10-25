@@ -36,7 +36,7 @@ public class Main {
             return;
         }
 
-        int temp_index = path_to_save.lastIndexOf("\\");
+        int temp_index = path_to_save.lastIndexOf("/");
         String first_part = path_to_save.substring(0, temp_index + 1);
         String last_part = path_to_save.substring(temp_index + 1);
 
@@ -49,16 +49,16 @@ public class Main {
     public static boolean isValidPath(String input_path) {
         boolean answer = true;
 
-        if (!input_path.contains("\\")) {
+        if (!input_path.contains("/")) {
             answer = false;
         } else {
-            int temp_index = input_path.lastIndexOf("\\");
+            int temp_index = input_path.lastIndexOf("/");
             String first_part = input_path.substring(0, temp_index);
             String last_part = input_path.substring(temp_index + 1);
 
             File temp_file = new File(first_part);
 
-            if (last_part.contains("\\")) {
+            if (last_part.contains("/")) {
                 answer = false;
             }
 
