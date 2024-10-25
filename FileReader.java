@@ -3,30 +3,23 @@ import java.util.Scanner;
 
 public class FileReader {
 
+    public void file_split(int file_split_piece_count_int, String file_split_path_to_file) {
 
-    String file_name;
-
-    public void get_filename(String file_name) {
-        this.file_name = file_name;
-    }
-
-    public void file_split(int piece_counter_input) {
+        SampleLogger sampleLogger = new SampleLogger();
 
         try {
 
-            File file = new File(this.file_name);
+            File file = new File(file_split_path_to_file);
 
-            int length = (int) file.length();
-            // divide as-is, we'll later just add leftovers after this divide to final piece
-            int chosen_piece_size = length / piece_counter_input;
-            System.out.println(chosen_piece_size);
+            int file_split_original_file_size = (int) file.length();
+            int file_split_file_size_after_split = file_split_original_file_size / file_split_piece_count_int;
 
             if (file.exists()) {
 
-                FileInputStream fis = new FileInputStream(this.file_name);
-                Scanner sc = new Scanner(fis);    //file to be scanned
+                FileInputStream fis = new FileInputStream(file_split_path_to_file);
+                Scanner sc = new Scanner(fis);
 
-                for (int i = 0; i < piece_counter_input; i++) {
+                for (int i = 0; i < file_split_piece_count_int; i++) {
 
                     String str_name_of_temp_file = "temp" + i;
                     File temp_file = new File(str_name_of_temp_file);
@@ -36,9 +29,9 @@ public class FileReader {
 
                         output_internal.append(sc.nextLine());
                         output_internal.append("\n");
-                        int length_of_temp_file = (int) temp_file.length();
+                        int size_temp_file = (int) temp_file.length();
 
-                        if (length_of_temp_file > chosen_piece_size && i != piece_counter_input - 1) {
+                        if (size_temp_file > file_split_file_size_after_split && i != file_split_piece_count_int - 1) {
                             break;
                         }
 
@@ -46,17 +39,15 @@ public class FileReader {
                     output_internal.close();
                 }
 
-            } else {
-                System.out.println("// java_log_splitter");
-                System.out.println("// No such file OR path is broken. Please provide valid file path");
-                System.out.println("// Please see --help or -help for instructions");
-            }
+                System.out.println("// Success!");
 
+            } else {
+                sampleLogger.error_broken_path();
+            }
 
         } catch (IOException e) {
             //noinspection CallToPrintStackTrace
             e.printStackTrace();
         }
     }
-
 }
