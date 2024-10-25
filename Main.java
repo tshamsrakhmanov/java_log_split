@@ -4,16 +4,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-//        System.out.println("// Flags provided...");
-//
-//        if (args.length > 0) {
-//            for (String arg : args) {
-//                System.out.printf("  %s\n", arg);
-//            }
-//        } else {
-//            System.out.println("// No flags provided...");
-//        }
-
         int piece_counter = 5;
 
         SampleLogger sampleLogger = new SampleLogger();
