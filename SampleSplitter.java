@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.Scanner;
 
-public class FileReader {
+public class SampleSplitter {
 
     public void file_split(String path_to_file, String path_to_save, String custom_filename, int piece_count) {
 
@@ -31,7 +31,7 @@ public class FileReader {
 
                     String suffix = String.valueOf(i + 1);
 
-                    String str_name_of_temp_file = path_to_save + custom_filename + suffix;
+                    String str_name_of_temp_file = path_to_save + custom_filename + suffix + ".log";
                     System.out.println(str_name_of_temp_file);
                     File temp_file = new File(str_name_of_temp_file);
                     Writer output_internal = new BufferedWriter(new FileWriter(str_name_of_temp_file, true));

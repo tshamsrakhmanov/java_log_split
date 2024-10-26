@@ -41,8 +41,8 @@ public class Main {
         String last_part = path_to_save.substring(temp_index + 1);
 
 
-        FileReader reader = new FileReader();
-        reader.file_split(path_to_file, first_part, last_part, piece_counter);
+        SampleSplitter splitter = new SampleSplitter();
+        splitter.file_split(path_to_file, first_part, last_part, piece_counter);
 
     }
 
