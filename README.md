@@ -5,7 +5,7 @@
 ```
 JAVA_LOG_SPLIT
 
-Usage: CMD [PATH1] [PATH2] [SPLIT]
+Usage: java -jar <jar filename> [PATH1] [PATH2] [SPLIT]
 PATH1 {mandatory argument}
     Path to log file which is taken for splitting operation
 PATH2 {mandatory argument}
